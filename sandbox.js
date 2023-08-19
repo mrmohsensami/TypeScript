@@ -26,3 +26,25 @@
 // };
 // person.email = 'email@example.com'; // Error
 // person.name = 10; // Error
+// 4. explicit types
+// let fName: string;
+// let age: number;
+// let isMale: boolean;
+// let names: string[];
+// let numbers: number[];
+// numbers.push(4); // Error
+// let mixed: (string | number)[] = []; // Ok
+// mixed.push(10); // Ok
+// mixed.push('John'); // Ok
+// let person: object;
+// person = {
+//     name: 'John',
+//     age: 34,
+//     isMale: true,
+// };
+// person = [];
+// let person2: {
+//     name: string;
+//     age: number;
+//     isMale: boolean;
+// };
