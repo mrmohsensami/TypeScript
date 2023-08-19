@@ -51,3 +51,21 @@
 //     age: number;
 //     isMale: boolean;
 // };
+
+// 5. any type
+// let all: any;
+// all = 10;
+// all = 'John';
+// all = true;
+// all = [10, 'Alex', 30];
+// all = {
+//     name: 'John',
+//     age: 34,
+//     isMale: true,
+// };
+// let mixed: any[] = [];
+// mixed.push(10);
+// mixed.push('John');
+// mixed.push(true);
+// let person: { name: any; age: any };
+// person = { name: 'John', age: 34 };
