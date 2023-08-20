@@ -69,3 +69,15 @@
 // mixed.push(true);
 // let person: { name: any; age: any };
 // person = { name: 'John', age: 34 };
+
+// 6. tsconfig
+// tsc ./src/sandbox.ts --outDir ./public -w
+// tsc --init
+// tsc -w // if we have tsconfig
+
+// 7.Function Basics
+let greet: Function;
+greet = function (name: string, age?: number, isMale: boolean = true): string {
+    return name;
+};
+console.log(greet('John'));
