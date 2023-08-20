@@ -76,8 +76,26 @@
 // tsc -w // if we have tsconfig
 
 // 7.Function Basics
-let greet: Function;
-greet = function (name: string, age?: number, isMale: boolean = true): string {
-    return name;
+// let greet: Function;
+// greet = function (name: string, age?: number, isMale: boolean = true): string {
+//     return name;
+// };
+// console.log(greet('John'));
+
+// 8. Type Aliases
+type s = string;
+type n = number;
+type b = boolean;
+type snb = s | n | b;
+let mixed: snb;
+type objectType = {
+    name: string;
+    age: number;
+    isMale: boolean;
 };
-console.log(greet('John'));
+let user: objectType;
+user = {
+    name: 'John',
+    age: 34,
+    isMale: true,
+};
