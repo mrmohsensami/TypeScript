@@ -83,19 +83,31 @@
 // console.log(greet('John'));
 
 // 8. Type Aliases
-type s = string;
-type n = number;
-type b = boolean;
-type snb = s | n | b;
-let mixed: snb;
-type objectType = {
-    name: string;
-    age: number;
-    isMale: boolean;
+// type s = string;
+// type n = number;
+// type b = boolean;
+// type snb = s | n | b;
+// let mixed: snb;
+// type objectType = {
+//     name: string;
+//     age: number;
+//     isMale: boolean;
+// };
+// let user: objectType;
+// user = {
+//     name: 'John',
+//     age: 34,
+//     isMale: true,
+// };
+
+// 9. Function Signatures
+let greet: (a: string, b: string) => void;
+greet = (a: string, b: string) => {
+    console.log(a + '' + b);
 };
-let user: objectType;
-user = {
-    name: 'John',
-    age: 34,
-    isMale: true,
+type objectType = { name: string; age: number };
+let person: (obj: objectType) => void;
+person = (John: objectType) => {
+    console.log(John);
 };
+person({ name: 'John', age: 34 });
