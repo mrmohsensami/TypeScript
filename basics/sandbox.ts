@@ -113,26 +113,33 @@
 // person({ name: 'John', age: 34 });
 
 // 17. Generics 18. Enum
-enum ResourceType {
-    BOOK,
-    FILM,
-    MAG,
-}
-const addUID = <T extends object>(obj: T) => {
-    let uid = Math.floor(Math.random() * 100);
-    return { ...obj, uid };
-};
-let docOne = addUID({ name: 'John', age: 34 });
-console.log(docOne.name);
+// enum ResourceType {
+//     BOOK,
+//     FILM,
+//     MAG,
+// }
+// const addUID = <T extends object>(obj: T) => {
+//     let uid = Math.floor(Math.random() * 100);
+//     return { ...obj, uid };
+// };
+// let docOne = addUID({ name: 'John', age: 34 });
+// console.log(docOne.name);
 
-interface Resource<T> {
-    uid: number;
-    resourceName: number;
-    data: T;
-}
-const docTwo: Resource<object> = {
-    uid: 100,
-    resourceName: ResourceType.BOOK,
-    data: { name: 'John' },
-};
-console.log(docTwo);
+// interface Resource<T> {
+//     uid: number;
+//     resourceName: number;
+//     data: T;
+// }
+// const docTwo: Resource<object> = {
+//     uid: 100,
+//     resourceName: ResourceType.BOOK,
+//     data: { name: 'John' },
+// };
+// console.log(docTwo);
+
+// 19. Tuples
+let arr = ['John', 21, true];
+arr[0] = 100;
+
+let tup: [string, number, boolean] = ['John', 21, true];
+// tup[0] = 100; // Error
