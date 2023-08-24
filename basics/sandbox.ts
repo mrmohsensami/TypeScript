@@ -112,7 +112,12 @@
 // };
 // person({ name: 'John', age: 34 });
 
-// 17. Generics
+// 17. Generics 18. Enum
+enum ResourceType {
+    BOOK,
+    FILM,
+    MAG,
+}
 const addUID = <T extends object>(obj: T) => {
     let uid = Math.floor(Math.random() * 100);
     return { ...obj, uid };
@@ -122,12 +127,12 @@ console.log(docOne.name);
 
 interface Resource<T> {
     uid: number;
-    resourceName: string;
+    resourceName: number;
     data: T;
 }
 const docTwo: Resource<object> = {
     uid: 100,
-    resourceName: 'book',
+    resourceName: ResourceType.BOOK,
     data: { name: 'John' },
 };
 console.log(docTwo);
