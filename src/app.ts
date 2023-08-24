@@ -1,59 +1,15 @@
-// 10. Type Casting
-// const anchor = document.querySelector('a')!;
-// const form = document.querySelector('.new-item-form') as HTMLFormElement;
-// //inputs
-// const type = document.querySelector('#type') as HTMLSelectElement;
-// const tofrom = document.querySelector('#tofrom') as HTMLInputElement;
-// const details = document.querySelector('#details') as HTMLInputElement;
-// const amount = document.querySelector('#amount') as HTMLInputElement;
+import { Invoice } from './classes/Invoice.js';
+import { Payment } from './classes/Payment.js';
+import { HasFormatter } from './interfaces/HasFormatter.js';
 
-// 11. classes
-// 12.Access modifiers
-// 14. interfaces
+let DocOne: HasFormatter;
+let DocTwo: HasFormatter;
 
-interface isPerson {
-    name: string;
-    age: number;
-    speak(a: string): void;
-    spend(a: number): number;
-}
+DocOne = new Invoice('John', 'Work on the website', 1000);
+DocTwo = new Payment('Larry', 'Work on the mobile app', 750);
 
-const me: isPerson = {
-    name: 'Sachin',
-    age: 25,
-    speak(text: string): void {
-        console.log(text);
-    },
-    spend(amount: number) {
-        console.log(amount);
-        return amount;
-    },
-};
+let Docs: HasFormatter[] = [];
+Docs.push(DocOne);
+Docs.push(DocTwo);
 
-class Invoice {
-    public client: string;
-    private details: string;
-    readonly amount: number;
-
-    constructor(c: string, d: string, a: number) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
-    }
-    format() {
-        return `${this.client} owes ${this.amount} for ${this.details}`;
-    }
-}
-const invOne = new Invoice('Client 1', 'Details 1', 250);
-const invTwo = new Invoice('Client 2', 'Details 2', 400);
-// console.log(invOne.format());
-// console.log(invTwo.format());
-let invoices: Invoice[] = [];
-invoices.push(invOne);
-invoices.push(invTwo);
-for (let inv of invoices) {
-    console.log(inv.client); // Public
-    // console.log(inv.details); // Private
-    console.log(inv.amount); // Readonly
-}
-console.log(invOne.format());
+console.log(Docs);
