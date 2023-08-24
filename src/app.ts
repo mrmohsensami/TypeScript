@@ -1,15 +1,27 @@
 import { Invoice } from './classes/Invoice.js';
+import { ListTemplate } from './classes/ListTemplate.js';
 import { Payment } from './classes/Payment.js';
 import { HasFormatter } from './interfaces/HasFormatter.js';
 
-let DocOne: HasFormatter;
-let DocTwo: HasFormatter;
+const form = document.querySelector('.new-item-form') as HTMLFormElement;
 
-DocOne = new Invoice('John', 'Work on the website', 1000);
-DocTwo = new Payment('Larry', 'Work on the mobile app', 750);
+//inputs
+const type = document.querySelector('#type') as HTMLSelectElement;
+const tofrom = document.querySelector('#tofrom') as HTMLInputElement;
+const details = document.querySelector('#details') as HTMLInputElement;
+const amount = document.querySelector('#amount') as HTMLInputElement;
 
-let Docs: HasFormatter[] = [];
-Docs.push(DocOne);
-Docs.push(DocTwo);
+const ul = document.querySelector('ul')!;
+const list = new ListTemplate(ul);
 
-console.log(Docs);
+form.addEventListener('submit', (e: Event) => {
+    e.preventDefault();
+
+    let doc: HasFormatter;
+    if (type.value === 'صورتحساب') {
+        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    } else {
+        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    list.render(doc, type.value, 'end');
+});
