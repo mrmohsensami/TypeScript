@@ -9,6 +9,27 @@
 
 // 11. classes
 // 12.Access modifiers
+// 14. interfaces
+
+interface isPerson {
+    name: string;
+    age: number;
+    speak(a: string): void;
+    spend(a: number): number;
+}
+
+const me: isPerson = {
+    name: 'Sachin',
+    age: 25,
+    speak(text: string): void {
+        console.log(text);
+    },
+    spend(amount: number) {
+        console.log(amount);
+        return amount;
+    },
+};
+
 class Invoice {
     public client: string;
     private details: string;
