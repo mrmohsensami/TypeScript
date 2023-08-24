@@ -101,13 +101,33 @@
 // };
 
 // 9. Function Signatures
-let greet: (a: string, b: string) => void;
-greet = (a: string, b: string) => {
-    console.log(a + '' + b);
+// let greet: (a: string, b: string) => void;
+// greet = (a: string, b: string) => {
+//     console.log(a + '' + b);
+// };
+// type objectType = { name: string; age: number };
+// let person: (obj: objectType) => void;
+// person = (John: objectType) => {
+//     console.log(John);
+// };
+// person({ name: 'John', age: 34 });
+
+// 17. Generics
+const addUID = <T extends object>(obj: T) => {
+    let uid = Math.floor(Math.random() * 100);
+    return { ...obj, uid };
 };
-type objectType = { name: string; age: number };
-let person: (obj: objectType) => void;
-person = (John: objectType) => {
-    console.log(John);
+let docOne = addUID({ name: 'John', age: 34 });
+console.log(docOne.name);
+
+interface Resource<T> {
+    uid: number;
+    resourceName: string;
+    data: T;
+}
+const docTwo: Resource<object> = {
+    uid: 100,
+    resourceName: 'book',
+    data: { name: 'John' },
 };
-person({ name: 'John', age: 34 });
+console.log(docTwo);
